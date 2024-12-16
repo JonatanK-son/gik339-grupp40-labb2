@@ -14,4 +14,11 @@ server
 
 server.listen(3000);
 
-server.get("/users", (req, res) => {});
+server.get("/users", (req, res) => {
+  db = new sqlite3.Database("./gik339-labb2.db");
+  db.all("SELECT * FROM USERS", (err, rows) => {
+    res.send(rows);
+  });
+});
+
+sqlite3 = require("sqlite3").verbose();
