@@ -3,9 +3,15 @@ fetch("http://localhost:3000/users")
   .then((data) => {
     console.log(data);
     const usersList = document.createElement("ul");
-    document.body.appendChild(usersList);
+    document.body.insertAdjacentElement("afterbegin", usersList);
     data.forEach((element) => {
-      var user = document.createElement("li");
+      const user = document.createElement("li");
+      element.toString = function () {
+        return this.map(
+          (item) => `${item.firstName} ${item.lastName} ${item.username}`
+        ).join(", ");
+      };
+      user.innerText = element.toString();
       usersList.insertAdjacentElement("beforeend", user);
     });
   });
