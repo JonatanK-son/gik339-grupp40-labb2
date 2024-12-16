@@ -6,12 +6,13 @@ fetch("http://localhost:3000/users")
     document.body.insertAdjacentElement("afterbegin", usersList);
     data.forEach((element) => {
       const user = document.createElement("li");
-      element.toString = function () {
-        return this.map(
-          (item) => `${item.firstName} ${item.lastName} ${item.username}`
-        ).join(", ");
-      };
-      user.innerText = element.toString();
+      user.innerText = formatUser(element);
+      user.style.backgroundColor = element.color;
       usersList.insertAdjacentElement("beforeend", user);
     });
   });
+
+function formatUser(item) {
+  return `${item.firstName} ${item.lastName} 
+          ${item.username}`;
+}
