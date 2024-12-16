@@ -1,11 +1,24 @@
 ul {
-  border: 1rem rgb(77, 77, 77) solid;
+  border: 0.8rem rgb(77, 77, 77) solid;
   border-radius: 1rem;
   background-color: rgb(77, 77, 77);
 }
 
 li {
   border-radius: 0.3rem;
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+  font-size: 2rem;
+  color: white;
+  -webkit-text-stroke-width: 1.5px;
+  -webkit-text-stroke-color: black;
+  padding: 1rem;
+  list-style-type: circle;
+  border-left: 2px solid black;
+  border-top: 2px solid black;
+  border-right: 2px solid black;
+}
+li:last-child {
+  border-bottom: 2px solid black;
 }
 
 body {
